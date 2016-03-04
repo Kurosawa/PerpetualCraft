@@ -1,5 +1,8 @@
 ![PerpetualCraft](http://computercraft.jp/pc.png)
 
+* Minecraft 1.8系対応
+* 前提Mod Forge 1.8.9-11.15.1.1722
+
 ## Excalibur
 コストは高いけどダイヤの剣の3倍近くの強さをもつ  
 
