@@ -1,5 +1,8 @@
 ![PerpetualCraft](http://computercraft.jp/pc.png)
 
+Minecraft の世界に「あったらいいな」的なアイテムやブロックを追加していくよくあるModです.
+ComputerCraft + MoreTurtleをもっと楽しみたいという個人的な趣味で作っています.
+
 * Minecraft 1.8系対応
 * 前提Mod Forge 1.8.9-11.15.1.1722
 
