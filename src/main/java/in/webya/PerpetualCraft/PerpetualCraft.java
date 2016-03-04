@@ -66,7 +66,8 @@ public class PerpetualCraft {
 		GameRegistry.registerItem(
 				transparentArmor = new TransparentArmor("TransparentArmor", TRANSPARENT_MATERIAL, "transparent", 1),
 				"TransparentArmor");
-		GameRegistry.registerItem(transparentLeggings = new TransparentArmor("TransparentLeggings",
+		GameRegistry.registerItem(
+				transparentLeggings = new TransparentArmor("TransparentLeggings",
 				TRANSPARENT_MATERIAL, "transparent", 2), "TransparentLeggings");
 		GameRegistry.registerItem(
 				transparentBoots = new TransparentArmor("TransparentBoots", TRANSPARENT_MATERIAL, "transparent", 3),
@@ -96,11 +97,11 @@ public class PerpetualCraft {
 
 	@SubscribeEvent
 	public void generateOrePre(OreGenEvent.Pre event) {
-		WorldGenerator chrowa3BlockGen = new WorldGenMinable(ledBlock.getDefaultState(), 30);
+		WorldGenerator chrowa3BlockGen = new WorldGenMinable(ledBlock.getDefaultState(), 10);
 
 		if (TerrainGen.generateOre(event.world, event.rand, chrowa3BlockGen, event.pos,
 				OreGenEvent.GenerateMinable.EventType.CUSTOM))
-			genStandardOre(event.world, event.pos, 20, chrowa3BlockGen, 0, 96, event.rand);
+			genStandardOre(event.world, event.pos, 2, chrowa3BlockGen, 30, 50, event.rand);
 	}
 
 	protected void genStandardOre(World world, BlockPos pos, int size, WorldGenerator generator, int minY, int maxY,
@@ -126,11 +127,58 @@ public class PerpetualCraft {
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		GameRegistry.addRecipe(new ItemStack(grassFertilizer, 16), "###", "###", "###", '#', Blocks.tallgrass);
+		GameRegistry.addRecipe(new ItemStack(grassFertilizer, 16),
+				"###",
+				"###",
+				"###",
+				'#', Blocks.tallgrass);
 
-		GameRegistry.addRecipe(new ItemStack(excalibur), "BBB", "DSD", "DBD", 'B', Items.book, 'D', Items.diamond, 'S',
-				Items.diamond_sword);
-		GameRegistry.addRecipe(new ItemStack(redPotato, 8), "   ", "RPR", "   ", 'R', Items.redstone, 'P',
-				Items.potato);
+		GameRegistry.addRecipe(new ItemStack(excalibur),
+				"BBB",
+				"DSD",
+				"DBD",
+				'B', Items.book,
+				'D', Items.diamond,
+				'S', Items.diamond_sword);
+		
+		GameRegistry.addRecipe(new ItemStack(redPotato, 8),
+				"   ",
+				"RPR",
+				"   ",
+				'R', Items.redstone,
+				'P', Items.potato);
+		
+		GameRegistry.addRecipe(new ItemStack(ledBlock, 8),
+				"RRR",
+				"RSR",
+				"RRR",
+				'R', Items.redstone,
+				'S', Blocks.cobblestone);
+		
+		// Transparent Armor Series
+		GameRegistry.addRecipe(new ItemStack(transparentHelmet),
+				"   ",
+				"GGG",
+				"G G",
+				'G', Blocks.glass);
+		
+		GameRegistry.addRecipe(new ItemStack(transparentArmor),
+				"G G",
+				"GGG",
+				"GGG",
+				'G', Blocks.glass);
+		
+		GameRegistry.addRecipe(new ItemStack(transparentLeggings),
+				"GGG",
+				"G G",
+				"G G",
+				'G', Blocks.glass);
+		
+		GameRegistry.addRecipe(new ItemStack(transparentBoots),
+				"   ",
+				"G G",
+				"G G",
+				'G', Blocks.glass);
+		
 	}
 }

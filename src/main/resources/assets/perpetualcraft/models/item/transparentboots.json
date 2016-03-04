@@ -1,6 +1,6 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "perpetualcraft:items/crystal_helmet"
+        "layer0": "perpetualcraft:items/transparent_boots"
     }
 }
