@@ -72,6 +72,6 @@ ComputerCraft + MoreTurtleをもっと楽しみたいという個人的な趣味
 
 
 ## Stone Shears
-石バサミ. 鉄より丈夫
+石バサミ. 鉄より丈夫  
 ![Stone Shears](http://computercraft.jp/Stoneshears.png)
 
