@@ -1,6 +1,7 @@
 package in.webya.PerpetualCraft;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -26,12 +27,20 @@ public class GrassFertilizer extends Item {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side,
 			float hitX, float hitY, float hitZ) {
-		int blockId = Block.getIdFromBlock(worldIn.getBlockState(pos).getBlock());
-		if (blockId == 2 || blockId == 6) {
+		//int blockId = Block.getIdFromBlock(worldIn.getBlockState(pos).getBlock());
+		
+		if (worldIn.getBlockState(pos).getBlock() instanceof IGrowable)
+		{
 			ItemDye.applyBonemeal(stack, worldIn, pos, playerIn);
 			ItemDye.spawnBonemealParticles(worldIn, pos.add(0, 1, 0), 15);
 			return true;
 		}
+		
+//		if (blockId == 2 || blockId == 6) {
+//			ItemDye.applyBonemeal(stack, worldIn, pos, playerIn);
+//			ItemDye.spawnBonemealParticles(worldIn, pos.add(0, 1, 0), 15);
+//			return true;
+//		}
 		return false;
 	}
 }
