@@ -2,6 +2,7 @@ package in.webya.PerpetualCraft;
 
 import java.util.Random;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -13,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -33,6 +35,8 @@ public class PerpetualCraft {
 	public static final String MOD_ACCEPTED_MC_VERSIONS = "[1.8,1.8.9]";
 
 	public static Block ledBlock;
+	public static Block charcoalBlock;
+
 	public static Item redPotato;
 	public static Item grassFertilizer;
 
@@ -44,6 +48,7 @@ public class PerpetualCraft {
 	
 	public static Item stoneShears;
 	public static Item ash;
+	
 
 	public static ArmorMaterial TRANSPARENT_MATERIAL = EnumHelper.addArmorMaterial("TRANSPARENT", "TRANSPARENT", 128,
 			new int[] { 3, 8, 6, 3 }, 128);
@@ -53,6 +58,7 @@ public class PerpetualCraft {
 		MinecraftForge.ORE_GEN_BUS.register(this);
 
 		ledBlock = new LedBlock();
+		charcoalBlock = new CharcoalBlock();
 		redPotato = new RedPotato();
 		grassFertilizer = new GrassFertilizer();
 
@@ -62,6 +68,7 @@ public class PerpetualCraft {
 		ash = new Ash();
 
 		GameRegistry.registerBlock(ledBlock, LedItemBlock.class, "ledblock");
+		GameRegistry.registerBlock(charcoalBlock, "charcoalblock");
 		GameRegistry.registerItem(redPotato, "redpotato");
 		GameRegistry.registerItem(grassFertilizer, "grassfertilizer");
 		GameRegistry.registerItem(excalibur, "excalibur");
@@ -85,6 +92,10 @@ public class PerpetualCraft {
 
 			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ledBlock), 0,
 					new ModelResourceLocation(MOD_ID + ":" + "ledblock", "inventory"));
+			
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(charcoalBlock), 0,
+					new ModelResourceLocation(MOD_ID + ":" + "charcoalblock", "inventory"));
+			
 			ModelLoader.setCustomModelResourceLocation(excalibur, 0,
 					new ModelResourceLocation(MOD_ID + ":" + "excalibur", "inventory"));
 			ModelLoader.setCustomModelResourceLocation(redPotato, 0,
@@ -105,6 +116,7 @@ public class PerpetualCraft {
 					new ModelResourceLocation(MOD_ID + ":" + "stoneshears", "inventory"));
 			ModelLoader.setCustomModelResourceLocation(ash, 0,
 					new ModelResourceLocation(MOD_ID + ":" + "ash", "inventory"));
+
 		}
 	}
 
@@ -207,7 +219,30 @@ public class PerpetualCraft {
 				"AAA",
 				'A', ash);
 		
+		GameRegistry.addRecipe(new ItemStack(charcoalBlock),
+				"CCC",
+				"CCC",
+				"CCC",
+				'C', new ItemStack(Items.coal, 1, 1));
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.diamond),
+				charcoalBlock,charcoalBlock,charcoalBlock,
+				charcoalBlock,charcoalBlock,charcoalBlock,
+				charcoalBlock,charcoalBlock,charcoalBlock);
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.coal, 9, 1),
+				charcoalBlock);
 		
 		GameRegistry.addSmelting(Blocks.leaves ,new ItemStack(ash),0.1f);
+		
+		GameRegistry.registerFuelHandler(new IFuelHandler(){
+		    @Override
+		    public int getBurnTime(ItemStack fuel){
+		        if(fuel.getItem().equals(Item.getItemFromBlock(charcoalBlock))){
+		                return 50000;
+		        }
+		        return 0;
+		    }
+		});
 	}
 }
