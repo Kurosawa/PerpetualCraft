@@ -5,7 +5,13 @@ ComputerCraft + MoreTurtleをもっと楽しみたいという個人的な趣味
 
 * Minecraft 1.8系対応
 * 前提Mod Forge 1.8.9-11.15.1.1722
+  
+## 1.0.3 UPDATE
 
+* 合計追加アイテム数：11
+* GrassFertilizerの仕様変更. 骨粉ふりかければ育つものには全て使えるようにした.
+  
+  
 ## Excalibur
 コストは高いけどダイヤの剣の3倍近くの攻撃力  
 
