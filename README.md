@@ -7,13 +7,13 @@ ComputerCraft + MoreTurtleをもっと楽しみたいという個人的な趣味
 * 前提Mod Forge 1.8.9-11.15.1.1722
 
 ## Excalibur
-コストは高いけどダイヤの剣の3倍近くの強さをもつ  
+コストは高いけどダイヤの剣の3倍近くの攻撃力  
 
 ![Excalibur](http://computercraft.jp/excalibur.png)
 
 
 ## Grass Fertilizer
-草に意味をもたせた. 骨粉に変わる肥料としてどうぞ  
+草から創る. 骨粉に変わる肥料  
 
 ![Grass Fertilizer](http://computercraft.jp/grallFertilizer.png)
 
@@ -52,3 +52,26 @@ ComputerCraft + MoreTurtleをもっと楽しみたいという個人的な趣味
 透明脚絆. ガラスから作った割には強いよ.  スキンに影響しない.  
 
 ![Transparent Leggings](http://computercraft.jp/transparentLeggins.png)
+
+
+## Ash
+灰. 今のところオークの葉から創れる  
+![Ash](http://computercraft.jp/Oak2Ash.png)
+
+灰から木炭を創れる  
+![Ash2Charcoal](http://computercraft.jp/Ash2Charcoal.png)
+
+木炭から木炭ブロックを創れる  
+![Charcoal2CharcoalBlock](http://computercraft.jp/Charcoal2CBlock.png)
+
+木炭ブロックから木炭にも戻せる  
+![CharcoalBlock2Charcoal](http://computercraft.jp/CBlock2Charcoal.png)
+
+木炭ブロックからダイヤモンドを創れる  
+![CharcoalBlock2Diamond](http://computercraft.jp/CBlock2Diamond.png)
+
+
+## Stone Shears
+石バサミ. 鉄より丈夫
+![Stone Shears](http://computercraft.jp/Stoneshears.png)
+
