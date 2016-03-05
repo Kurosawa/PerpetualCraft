@@ -41,6 +41,9 @@ public class PerpetualCraft {
 	public static Item transparentArmor;
 	public static Item transparentLeggings;
 	public static Item transparentBoots;
+	
+	public static Item stoneShears;
+	public static Item ash;
 
 	public static ArmorMaterial TRANSPARENT_MATERIAL = EnumHelper.addArmorMaterial("TRANSPARENT", "TRANSPARENT", 128,
 			new int[] { 3, 8, 6, 3 }, 128);
@@ -54,11 +57,16 @@ public class PerpetualCraft {
 		grassFertilizer = new GrassFertilizer();
 
 		excalibur = new Excalibur();
+		
+		stoneShears = new StoneShears();
+		ash = new Ash();
 
 		GameRegistry.registerBlock(ledBlock, LedItemBlock.class, "ledblock");
 		GameRegistry.registerItem(redPotato, "redpotato");
 		GameRegistry.registerItem(grassFertilizer, "grassfertilizer");
 		GameRegistry.registerItem(excalibur, "excalibur");
+		GameRegistry.registerItem(stoneShears, "stoneshears");
+		GameRegistry.registerItem(ash, "ash");
 
 		GameRegistry.registerItem(
 				transparentHelmet = new TransparentArmor("TransparentHelm", TRANSPARENT_MATERIAL, "transparent", 0),
@@ -92,6 +100,11 @@ public class PerpetualCraft {
 					new ModelResourceLocation(MOD_ID + ":" + "transparentleggings", "inventory"));
 			ModelLoader.setCustomModelResourceLocation(transparentBoots, 0,
 					new ModelResourceLocation(MOD_ID + ":" + "transparentboots", "inventory"));
+			
+			ModelLoader.setCustomModelResourceLocation(stoneShears, 0,
+					new ModelResourceLocation(MOD_ID + ":" + "stoneshears", "inventory"));
+			ModelLoader.setCustomModelResourceLocation(ash, 0,
+					new ModelResourceLocation(MOD_ID + ":" + "ash", "inventory"));
 		}
 	}
 
@@ -180,5 +193,21 @@ public class PerpetualCraft {
 				"G G",
 				'G', Blocks.glass);
 		
+		GameRegistry.addRecipe(new ItemStack(stoneShears),
+				"S S",
+				" S ",
+				"C C",
+				'S', Blocks.stone,
+				'C', Blocks.cobblestone);
+		
+		
+		GameRegistry.addRecipe(new ItemStack(Items.coal,32,1),
+				"AAA",
+				"AAA",
+				"AAA",
+				'A', ash);
+		
+		
+		GameRegistry.addSmelting(Blocks.leaves ,new ItemStack(ash),0.1f);
 	}
 }
